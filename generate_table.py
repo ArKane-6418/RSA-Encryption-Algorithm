@@ -12,14 +12,8 @@ characters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
 
 nums = list(range(0, 95))
 
-table = {}
-count = 0
-copy = nums[:]
-for char in characters:
-    num = copy[count]
-    table[char] = num
-    nums.remove(num)
-    count += 1
+table = dict(zip(characters, nums))
+print(table)
 
 with open("table.json", "w") as file:
     json.dump(table, file)
